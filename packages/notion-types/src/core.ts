@@ -118,6 +118,14 @@ export type PageFormat = ['p', string]
 export type InlineEquationFormat = ['e', string]
 export type DiscussionFormat = ['m', string]
 export type ExternalLinkFormat = ['‣', [string, string]]
+export type LinkedMentionBlock = ['lm', {
+  href: string
+  title: string
+  icon_url?: string
+  description?: string
+  link_provider?: string
+  thumbnail_url?: string
+}]
 export type DateFormat = ['d', FormattedDate]
 
 export interface FormattedDate {
@@ -145,6 +153,7 @@ export type SubDecoration =
   | ExternalLinkFormat
   | DiscussionFormat
   | ExternalObjectInstanceFormat
+  | LinkedMentionBlock
 
 export type BaseDecoration = [string]
 export type AdditionalDecoration = [string, SubDecoration[]]

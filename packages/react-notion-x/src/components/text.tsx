@@ -252,6 +252,18 @@ export function Text({
                 return <EOI block={externalObjectInstance} inline={true} />
               }
 
+              case 'lm':
+                const {href, title, icon_url} = decorator[1];
+                return (
+                  <components.PageLink
+                    className='notion-linked-mention'
+                    href={href}
+                  >
+                    {icon_url && <img className='notion-linked-mention-preview' src={icon_url} alt="" />}
+                    <span className='notion-linked-mention-title'>{title}</span>
+                  </components.PageLink>
+                )
+                
               default:
                 if (process.env.NODE_ENV !== 'production') {
                   console.log('unsupported text format', decorator)
